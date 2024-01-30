@@ -1,47 +1,43 @@
-/*void main(){
-  //lista
- /* List<dynamic> lista = [];
-  print(lista);
-  lista.add('https');
-  lista.add(5);
-  lista.add('https');
-  print(lista);
-
-  //set
-  Set<dynamic> setLista = <dynamic>{};
-  print(setLista);
-  setLista = functest('Can', setLista);
-  print(setLista);
-
-  }
-    functest(String registrar, Set<dynamic> destino){
-    destino.add(registrar);
-    return destino;
-
-  //map
-  Map< String,  int > mapLista = {};
-
-  print(mapLista);
-  mapLista  ['OI']= 159;
-  print(mapLista);*/
-
-  
-  
-}
-*/
-import 'dart:io';
-import 'revisao_teste.dart';
 void main(){
 
-  print('informe o raio do circulo: ');
-  String? inputRaio = stdin.readLineSync();
-  if(inputRaio != null){
-    double valorRaio = double.parse(inputRaio);
+Carros carro1 = Carros('Renault','Logan', 2019, 93355.00, versao: 'Life');
+Carros carro2 = Carros('Ford', 'Mustang', 2015, 566300.00, versao: 'mach');
+Carros carro3 = Carros('Volkswagen', 'Fusca', 1995, 37265.00, versao: 'N.D' );
 
-    double valorAreaCirculo = areaCirculo(valorRaio);
-    print( valorAreaCirculo.toStringAsFixed(2));
-  }else{
-    print('Null');
+carro1.infoCarros();
+carro2.infoCarros();
+carro3.infoCarros();
+
+}
+class Carros {
+  String marca;
+  String nome;
+  int anoFabricacao;
+  String? versao;
+  double valor;
+
+  Carros(this.marca,this.nome, this.anoFabricacao, this.valor, {this.versao});
+
+  void infoCarros(){
+    print('Marca: $marca\nNome: $nome\nAno fabricação: $anoFabricacao\nVersão: $versao\nValor: $valor\n');
+
+    @override
+    void acelerar(){
+      print('Acelerar');
+    }
   }
+
+  
+
 }
 
+abstract class FuncoesCarro{
+  @override
+  void acelerar();
+
+  @override
+  void frear();
+
+  @override
+  void marchaRe();
+}
